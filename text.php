@@ -73,6 +73,10 @@
         .a {
             margin-left: 8px;
         }
+
+        a {
+            color: #0468b6
+        }
     </style>
 </head>
 

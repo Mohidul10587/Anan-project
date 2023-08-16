@@ -180,19 +180,8 @@ $conn->close();
             padding-bottom: 5px;
         }
 
-
-        @media (max-width: 768px) {
-
-            .username {
-                margin-left: 30px;
-                width: 50%;
-            }
-
-            .password {
-                margin-left: 33px;
-                width: 50%;
-            }
-
+        a {
+            color: #0468b6
         }
     </style>
 </head>
@@ -243,7 +232,7 @@ $conn->close();
 
         <div class="footer-div">
             <p>v3.0.2 Copyright © UCLES 2017. </p>
-            <p><span>All Rights Reserved. Please read our</span> <a href="#">Terms & Conditions</a></p>
+            <p><span>All Rights Reserved. Please read our</span> <a href="text.php">Terms & Conditions</a></p>
         </div>
     </div>
 </body>
