@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: profile.php"); // Redirect to profile page
         exit();
     } else {
-        echo "Invalid username or password.";
+        $error_message = "Invalid username or password.";
     }
 }
 
@@ -70,119 +70,125 @@ $conn->close();
     <title>Document</title>
 
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            font-weight: 900;
-        }
+    body {
+        display: flex;
+        justify-content: center;
+        font-weight: 900;
+    }
 
-        .content {
-            width: 750px;
-        }
+    .content {
+        width: 750px;
+    }
 
-        .header {
-            display: flex;
-            justify-content: space-between;
+    .header {
+        display: flex;
+        justify-content: space-between;
 
-            border-top: 2px solid #0468b6;
-            border-bottom: 1px solid #0468b6;
-            margin-bottom: 5px;
-            height: 50px;
-        }
+        border-top: 2px solid #0468b6;
+        border-bottom: 1px solid #0468b6;
+        margin-bottom: 5px;
+        height: 50px;
+    }
 
-        .login {
-            padding: 20px;
-            background-color: #0468b6;
-            color: white;
-        }
-
-
-        fieldset {
-            border: none;
-        }
-
-        .username {
-            margin-left: 30px;
-            width: 250px;
-            background-color: white;
-        }
-
-        .password {
-            margin-left: 33px;
-            width: 250px;
-            background-color: white;
-        }
-
-        .passwordInputDiv {
-            margin-top: 10px;
-
-        }
-
-        .usernameInputDiv {
-            margin-top: 10px;
-        }
-
-        .inputDiv {
-
-            margin-left: 20px;
-        }
+    .login {
+        padding: 20px;
+        background-color: #0468b6;
+        color: white;
+    }
 
 
+    fieldset {
+        border: none;
+    }
 
-        .heading {
-            color: #0468b6;
-            margin-top: 0;
-        }
+    .username {
+        margin-left: 30px;
+        width: 250px;
+        background-color: white;
+        border: none;
+    }
 
-        .heading a {
-            text-decoration: none;
-            color: #0468b6;
-        }
+    .password {
+        margin-left: 33px;
+        width: 250px;
+        background-color: white;
+        border: none;
+    }
 
-        .ml {
-            height: 25px;
-        }
+    .passwordInputDiv {
+        margin-top: 10px;
 
-        .button {
-            height: 30px;
-            margin-left: 9px;
-            width: 60px;
-        }
+    }
 
-        .span {
-            margin-left: 9px;
-            font-size: small;
-        }
+    .usernameInputDiv {
+        margin-top: 10px;
+    }
 
-        .legend {
-            font-size: larger;
-        }
+    .inputDiv {
 
-        label {
-            font-size: 15px;
-        }
-
-        .para {
-            margin-top: 32px;
-            font-size: 15px;
-            font-weight: normal;
-        }
+        margin-left: 20px;
+    }
 
 
-        .footer-div {
-            margin-top: 10px;
-            border-top: 2px solid #0468b6;
-            border-bottom: 2px solid #0468b6;
-            font-size: smaller;
-            font-weight: normal;
-            line-height: 2px;
-            padding-top: 20px;
-            padding-bottom: 5px;
-        }
 
-        a {
-            color: #0468b6
-        }
+    .heading {
+        color: #0468b6;
+        margin-top: 0;
+    }
+
+    .heading a {
+        text-decoration: none;
+        color: #0468b6;
+    }
+
+    .ml {
+        height: 25px;
+    }
+
+    .button {
+        height: 30px;
+        margin-left: 9px;
+        width: 60px;
+    }
+
+    .span {
+        margin-left: 9px;
+        font-size: small;
+    }
+
+    .legend {
+        font-size: larger;
+    }
+
+    label {
+        font-size: 15px;
+    }
+
+    .para {
+        margin-top: 32px;
+        font-size: 15px;
+        font-weight: normal;
+    }
+
+
+    .footer-div {
+        margin-top: 10px;
+        border-top: 2px solid #0468b6;
+        border-bottom: 2px solid #0468b6;
+        font-size: smaller;
+        font-weight: normal;
+        line-height: 2px;
+        padding-top: 20px;
+        padding-bottom: 5px;
+    }
+
+    a {
+        color: #0468b6
+    }
+
+    .error {
+        color: red
+    }
     </style>
 </head>
 
@@ -204,8 +210,13 @@ $conn->close();
 
         </div>
 
-
-
+        <div class="errorMassage">
+            <?php
+            if (isset($error_message)) {
+                echo '<p class="error">' . $error_message . '</p>';
+            }
+            ?>
+        </div>
         <div class="login">
             <form action="" method="post">
                 <fieldset>
@@ -213,13 +224,15 @@ $conn->close();
                     <div id="credentials">
                         <div class="inputDiv usernameInputDiv">
                             <label for="username">Username:</label>
-                            <input type="text" id="username" name="username" class="username ml" maxlength="30" value="">
+                            <input type="text" id="username" name="username" class="username ml" maxlength="30"
+                                value="">
                             <span class="span">(as provided by your centre)</span>
                         </div>
 
                         <div class="inputDiv passwordInputDiv">
                             <label for="password">Password:</label>
-                            <input type="password" id="password" name="password" id="password" class="password ml" maxlength="24" value="">
+                            <input type="password" id="password" name="password" id="password" class="password ml"
+                                maxlength="24" value="">
                             <button class="button" type="submit">Login</button>
                         </div>
 

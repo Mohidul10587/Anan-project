@@ -92,6 +92,7 @@ if (!isset($_SESSION["username"])) {
     .result-table {
         display: flex;
         flex-direction: column;
+        border: 1px solid #999999;
     }
 
     .result-row-heading {
@@ -142,6 +143,10 @@ if (!isset($_SESSION["username"])) {
 
     a {
         color: #0468b6
+    }
+
+    .bg {
+        background-color: #cccccc;
     }
     </style>
 </head>
@@ -204,7 +209,7 @@ if (!isset($_SESSION["username"])) {
                 <p class="result-description">Qualification</p>
                 <p class="result-description">Grade awarded</p>
             </div>
-            <div class="result-row">
+            <div class="result-row  bg">
                 <p class="result-column">Commerce</p>
                 <p class="result-description"><span style="color:gray">(700)</span> CGE O-Level</p>
                 <p class="result-description"> <?php echo $_SESSION["commerce"]; ?></p>
@@ -214,7 +219,7 @@ if (!isset($_SESSION["username"])) {
                 <p class="result-description"><span style="color:gray">(750)</span> CGE O-Level</p>
                 <p class="result-description"> <?php echo $_SESSION["accounting"]; ?></p>
             </div>
-            <div class="result-row">
+            <div class="result-row bg">
                 <p class="result-column">Business studies</p>
                 <p class="result-description"><span style="color:gray">(720)</span> CGE O-Level</p>
                 <p class="result-description"> <?php echo $_SESSION["business"]; ?></p>
