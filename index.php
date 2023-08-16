@@ -66,7 +66,7 @@ $conn->close();
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1024">
     <title>Document</title>
 
     <style>
@@ -104,11 +104,13 @@ $conn->close();
         .username {
             margin-left: 30px;
             width: 250px;
+            background-color: white;
         }
 
         .password {
             margin-left: 33px;
             width: 250px;
+            background-color: white;
         }
 
         .passwordInputDiv {

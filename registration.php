@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Registration</title>
     <style>
-    input {
-        margin: 5px;
-    }
+        input {
+            margin: 5px;
+        }
     </style>
 </head>
 
